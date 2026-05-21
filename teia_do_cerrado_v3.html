@@ -1,1081 +1,1105 @@
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&display=swap");
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teia do Cerrado</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&display=swap");
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-  :root {
-    --c-dark: #384330;
-    --c-cream: #efdec6;
-    --c-rust: #693103;
-    --c-dark-mid: #4a5a3e;
-    --c-cream-dark: #d4bc99;
-    --c-cream-light: #f7f0e4;
-    --c-rust-light: #8a4a1a;
-    --c-rust-pale: #f2e0cc;
-    --c-bg: #faf6ef;
-    --c-surface: #f3ead8;
-    --c-border: #c9b48e;
-    --c-muted: #7a6e5a;
-  }
+      :root {
+        --c-dark: #384330;
+        --c-cream: #efdec6;
+        --c-rust: #693103;
+        --c-dark-mid: #4a5a3e;
+        --c-cream-dark: #d4bc99;
+        --c-cream-light: #f7f0e4;
+        --c-rust-light: #8a4a1a;
+        --c-rust-pale: #f2e0cc;
+        --c-bg: #faf6ef;
+        --c-surface: #f3ead8;
+        --c-border: #c9b48e;
+        --c-muted: #7a6e5a;
+      }
 
-  body {
-    font-family: "Cinzel", Georgia, serif;
-    background: var(--c-bg);
-    color: var(--c-dark);
-  }
+      body {
+        font-family: "Cinzel", Georgia, serif;
+        background: var(--c-bg);
+        color: var(--c-dark);
+      }
 
-  .manual-hero {
-    background: var(--c-dark);
-    padding: 3rem 2rem 2.5rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
+      .manual-hero {
+        background: var(--c-dark);
+        padding: 3rem 2rem 2.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
 
-  .manual-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(
-        ellipse at 15% 85%,
-        rgba(239, 222, 198, 0.07) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        ellipse at 85% 15%,
-        rgba(105, 49, 3, 0.2) 0%,
-        transparent 50%
-      );
-  }
+      .manual-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            ellipse at 15% 85%,
+            rgba(239, 222, 198, 0.07) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 85% 15%,
+            rgba(105, 49, 3, 0.2) 0%,
+            transparent 50%
+          );
+      }
 
-  .hero-subtitle {
-    font-family: "Cinzel", serif;
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: rgba(239, 222, 198, 0.5);
-    margin-bottom: 0.75rem;
-    font-weight: 400;
-  }
+      .hero-subtitle {
+        font-family: "Cinzel", serif;
+        font-size: 10px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: rgba(239, 222, 198, 0.5);
+        margin-bottom: 0.75rem;
+        font-weight: 400;
+      }
 
-  .hero-title {
-    font-family: "Cinzel Decorative", Georgia, serif;
-    font-size: 40px;
-    font-weight: 900;
-    color: var(--c-cream);
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-  }
+      .hero-title {
+        font-family: "Cinzel Decorative", Georgia, serif;
+        font-size: 40px;
+        font-weight: 900;
+        color: var(--c-cream);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+      }
 
-  .hero-title span {
-    color: var(--c-rust);
-    text-shadow: 0 0 40px rgba(105, 49, 3, 0.4);
-  }
+      .hero-title span {
+        color: var(--c-rust);
+        text-shadow: 0 0 40px rgba(105, 49, 3, 0.4);
+      }
 
-  .hero-desc {
-    font-family: "Cinzel", serif;
-    font-size: 12px;
-    color: rgba(239, 222, 198, 0.65);
-    font-weight: 400;
-    font-style: italic;
-    margin-top: 1rem;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.8;
-    letter-spacing: 0.5px;
-  }
+      .hero-desc {
+        font-family: "Cinzel", serif;
+        font-size: 12px;
+        color: rgba(239, 222, 198, 0.65);
+        font-weight: 400;
+        font-style: italic;
+        margin-top: 1rem;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+        letter-spacing: 0.5px;
+      }
 
-  .badge-row {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-  }
+      .badge-row {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+      }
 
-  .badge {
-    background: rgba(239, 222, 198, 0.08);
-    border: 1px solid rgba(239, 222, 198, 0.2);
-    color: rgba(239, 222, 198, 0.85);
-    font-family: "Cinzel", serif;
-    font-size: 10px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    letter-spacing: 1px;
-    font-weight: 400;
-  }
+      .badge {
+        background: rgba(239, 222, 198, 0.08);
+        border: 1px solid rgba(239, 222, 198, 0.2);
+        color: rgba(239, 222, 198, 0.85);
+        font-family: "Cinzel", serif;
+        font-size: 10px;
+        padding: 4px 12px;
+        border-radius: 20px;
+        letter-spacing: 1px;
+        font-weight: 400;
+      }
 
-  .nav-tabs {
-    display: flex;
-    background: var(--c-surface);
-    border-bottom: 2px solid var(--c-border);
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .nav-tabs::-webkit-scrollbar {
-    display: none;
-  }
+      .nav-tabs {
+        display: flex;
+        background: var(--c-surface);
+        border-bottom: 2px solid var(--c-border);
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .nav-tabs::-webkit-scrollbar {
+        display: none;
+      }
 
-  .nav-tab {
-    padding: 12px 18px;
-    font-family: "Cinzel", serif;
-    font-size: 11px;
-    letter-spacing: 1px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--c-muted);
-    cursor: pointer;
-    border: none;
-    background: none;
-    white-space: nowrap;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
-    transition:
-      color 0.2s,
-      border-color 0.2s;
-  }
-  .nav-tab:hover {
-    color: var(--c-dark);
-  }
-  .nav-tab.active {
-    color: var(--c-rust);
-    border-bottom-color: var(--c-rust);
-  }
+      .nav-tab {
+        padding: 12px 18px;
+        font-family: "Cinzel", serif;
+        font-size: 11px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--c-muted);
+        cursor: pointer;
+        border: none;
+        background: none;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .nav-tab:hover {
+        color: var(--c-dark);
+      }
+      .nav-tab.active {
+        color: var(--c-rust);
+        border-bottom-color: var(--c-rust);
+      }
 
-  .content {
-    padding: 2rem;
-    max-width: 680px;
-    margin: 0 auto;
-  }
+      .content {
+        padding: 2rem;
+        max-width: 680px;
+        margin: 0 auto;
+      }
 
-  .section {
-    display: none;
-  }
-  .section.active {
-    display: block;
-  }
+      .section {
+        display: none;
+      }
+      .section.active {
+        display: block;
+      }
 
-  .section-title {
-    font-family: "Cinzel Decorative", Georgia, serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--c-dark);
-    margin-bottom: 0.5rem;
-  }
+      .section-title {
+        font-family: "Cinzel Decorative", Georgia, serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--c-dark);
+        margin-bottom: 0.5rem;
+      }
 
-  .section-intro {
-    font-family: "Cinzel", serif;
-    font-size: 13px;
-    color: var(--c-muted);
-    font-style: italic;
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-    border-left: 3px solid var(--c-rust);
-    padding-left: 1rem;
-    letter-spacing: 0.3px;
-  }
+      .section-intro {
+        font-family: "Cinzel", serif;
+        font-size: 13px;
+        color: var(--c-muted);
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+        border-left: 3px solid var(--c-rust);
+        padding-left: 1rem;
+        letter-spacing: 0.3px;
+      }
 
-  .card {
-    background: white;
-    border: 1px solid var(--c-border);
-    border-radius: 10px;
-    padding: 1.25rem;
-    margin-bottom: 1rem;
-  }
+      .card {
+        background: white;
+        border: 1px solid var(--c-border);
+        border-radius: 10px;
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+      }
 
-  .card-title {
-    font-family: "Cinzel", serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+      .card-title {
+        font-family: "Cinzel", serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
 
-  .card-body {
-    font-family: "Cinzel", serif;
-    font-size: 12.5px;
-    line-height: 1.8;
-    color: #4a4030;
-    letter-spacing: 0.2px;
-  }
+      .card-body {
+        font-family: "Cinzel", serif;
+        font-size: 12.5px;
+        line-height: 1.8;
+        color: #4a4030;
+        letter-spacing: 0.2px;
+      }
 
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-    margin-bottom: 1.5rem;
-  }
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+        margin-bottom: 1.5rem;
+      }
 
-  .mini-card {
-    background: white;
-    border: 1px solid var(--c-border);
-    border-radius: 10px;
-    padding: 1rem 0.75rem;
-    text-align: center;
-  }
+      .mini-card {
+        background: white;
+        border: 1px solid var(--c-border);
+        border-radius: 10px;
+        padding: 1rem 0.75rem;
+        text-align: center;
+      }
 
-  .mini-card .icon {
-    font-size: 46px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 32px;
-  }
-  .mini-card .icon img {
-    width: 140px;
-    height: auto;
-    object-fit: contain;
-  }
+      .mini-card .icon {
+        font-size: 46px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 32px;
+      }
+      .mini-card .icon img {
+        width: 140px;
+        height: auto;
+        object-fit: contain;
+      }
 
-  .mini-card .name {
-    font-family: "Cinzel", serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: var(--c-dark);
-    margin-bottom: 2px;
-    text-transform: uppercase;
-  }
+      .mini-card .name {
+        font-family: "Cinzel", serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: var(--c-dark);
+        margin-bottom: 2px;
+        text-transform: uppercase;
+      }
 
-  .mini-card .qty {
-    font-family: "Cinzel", serif;
-    font-size: 11px;
-    color: var(--c-muted);
-    margin-bottom: 6px;
-    letter-spacing: 0.3px;
-  }
+      .mini-card .qty {
+        font-family: "Cinzel", serif;
+        font-size: 11px;
+        color: var(--c-muted);
+        margin-bottom: 6px;
+        letter-spacing: 0.3px;
+      }
 
-  .mini-card .pts {
-    display: inline-block;
-    font-family: "Cinzel", serif;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 10px;
-    letter-spacing: 0.5px;
-  }
+      .mini-card .pts {
+        display: inline-block;
+        font-family: "Cinzel", serif;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 10px;
+        letter-spacing: 0.5px;
+      }
 
-  .restriction {
-    font-family: "Cinzel", serif;
-    font-size: 10.5px;
-    color: var(--c-muted);
-    margin-top: 5px;
-    line-height: 1.5;
-    font-style: italic;
-  }
+      .restriction {
+        font-family: "Cinzel", serif;
+        font-size: 10.5px;
+        color: var(--c-muted);
+        margin-top: 5px;
+        line-height: 1.5;
+        font-style: italic;
+      }
 
-  .pts-green {
-    background: #e3edd5;
-    color: var(--c-dark);
-  }
-  .pts-amber {
-    background: var(--c-rust-pale);
-    color: var(--c-rust);
-  }
-  .pts-fire {
-    background: #f5ddd0;
-    color: var(--c-rust);
-  }
-  .pts-blue {
-    background: #dde8f5;
-    color: #1a4a80;
-  }
-  .pts-gray {
-    background: var(--c-surface);
-    color: var(--c-muted);
-  }
+      .pts-green {
+        background: #e3edd5;
+        color: var(--c-dark);
+      }
+      .pts-amber {
+        background: var(--c-rust-pale);
+        color: var(--c-rust);
+      }
+      .pts-fire {
+        background: #f5ddd0;
+        color: var(--c-rust);
+      }
+      .pts-blue {
+        background: #dde8f5;
+        color: #1a4a80;
+      }
+      .pts-gray {
+        background: var(--c-surface);
+        color: var(--c-muted);
+      }
 
-  .grid-visual {
-    display: grid;
-    grid-template-columns: 60px 1fr 1fr 1fr;
-    grid-template-rows: 60px 1fr 1fr 1fr;
-    gap: 4px;
-    max-width: 340px;
-    margin: 1.5rem auto;
-    font-family: "Cinzel", serif;
-    font-size: 10px;
-  }
+      .grid-visual {
+        display: grid;
+        grid-template-columns: 60px 1fr 1fr 1fr;
+        grid-template-rows: 60px 1fr 1fr 1fr;
+        gap: 4px;
+        max-width: 340px;
+        margin: 1.5rem auto;
+        font-family: "Cinzel", serif;
+        font-size: 10px;
+      }
 
-  .grid-cell {
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4px;
-    line-height: 1.4;
-    font-weight: 600;
-    min-height: 56px;
-    letter-spacing: 0.3px;
-  }
+      .grid-cell {
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4px;
+        line-height: 1.4;
+        font-weight: 600;
+        min-height: 56px;
+        letter-spacing: 0.3px;
+      }
 
-  .cell-empty {
-    background: var(--c-surface);
-    color: var(--c-muted);
-    border: 1px dashed var(--c-border);
-  }
-  .cell-obj-col {
-    background: #e3edd5;
-    color: var(--c-dark);
-    border: 1px solid #b0c890;
-  }
-  .cell-obj-row {
-    background: #e3edd5;
-    color: var(--c-dark);
-    border: 1px solid #b0c890;
-  }
-  .cell-niche {
-    background: var(--c-rust-pale);
-    color: var(--c-rust);
-    border: 1px solid #d4a882;
-  }
+      .cell-empty {
+        background: var(--c-surface);
+        color: var(--c-muted);
+        border: 1px dashed var(--c-border);
+      }
+      .cell-obj-col {
+        background: #e3edd5;
+        color: var(--c-dark);
+        border: 1px solid #b0c890;
+      }
+      .cell-obj-row {
+        background: #e3edd5;
+        color: var(--c-dark);
+        border: 1px solid #b0c890;
+      }
+      .cell-niche {
+        background: var(--c-rust-pale);
+        color: var(--c-rust);
+        border: 1px solid #d4a882;
+      }
 
-  .turn-steps {
-    list-style: none;
-    padding: 0;
-  }
+      .turn-steps {
+        list-style: none;
+        padding: 0;
+      }
 
-  .turn-step {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 1.25rem;
-    align-items: flex-start;
-  }
+      .turn-step {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 1.25rem;
+        align-items: flex-start;
+      }
 
-  .step-num {
-    flex-shrink: 0;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: var(--c-dark);
-    color: var(--c-cream);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Cinzel Decorative", serif;
-    font-weight: 700;
-    font-size: 14px;
-  }
+      .step-num {
+        flex-shrink: 0;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--c-dark);
+        color: var(--c-cream);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Cinzel Decorative", serif;
+        font-weight: 700;
+        font-size: 14px;
+      }
 
-  .step-content .step-title {
-    font-family: "Cinzel", serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--c-dark);
-    margin-bottom: 4px;
-    letter-spacing: 0.3px;
-  }
+      .step-content .step-title {
+        font-family: "Cinzel", serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--c-dark);
+        margin-bottom: 4px;
+        letter-spacing: 0.3px;
+      }
 
-  .step-content .step-body {
-    font-family: "Cinzel", serif;
-    font-size: 12px;
-    color: var(--c-muted);
-    line-height: 1.8;
-    letter-spacing: 0.2px;
-  }
+      .step-content .step-body {
+        font-family: "Cinzel", serif;
+        font-size: 12px;
+        color: var(--c-muted);
+        line-height: 1.8;
+        letter-spacing: 0.2px;
+      }
 
-  .intervention-card {
-    background: white;
-    border: 1px solid var(--c-border);
-    border-radius: 10px;
-    padding: 1rem 1.25rem;
-    margin-bottom: 10px;
-    border-left: 4px solid var(--c-rust);
-  }
+      .intervention-card {
+        background: white;
+        border: 1px solid var(--c-border);
+        border-radius: 10px;
+        padding: 1rem 1.25rem;
+        margin-bottom: 10px;
+        border-left: 4px solid var(--c-rust);
+      }
 
-  .intervention-card.recovery {
-    border-left-color: var(--c-dark);
-  }
+      .intervention-card.recovery {
+        border-left-color: var(--c-dark);
+      }
 
-  .interv-title {
-    font-family: "Cinzel", serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: var(--c-dark);
-    margin-bottom: 5px;
-    text-transform: uppercase;
-  }
+      .interv-title {
+        font-family: "Cinzel", serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: var(--c-dark);
+        margin-bottom: 5px;
+        text-transform: uppercase;
+      }
 
-  .interv-body {
-    font-family: "Cinzel", serif;
-    font-size: 12px;
-    color: #4a4030;
-    line-height: 1.8;
-  }
+      .interv-body {
+        font-family: "Cinzel", serif;
+        font-size: 12px;
+        color: #4a4030;
+        line-height: 1.8;
+      }
 
-  .interv-note {
-    font-family: "Cinzel", serif;
-    font-size: 11px;
-    color: var(--c-muted);
-    font-style: italic;
-    margin-top: 6px;
-    padding-top: 6px;
-    border-top: 1px solid var(--c-surface);
-    line-height: 1.6;
-  }
+      .interv-note {
+        font-family: "Cinzel", serif;
+        font-size: 11px;
+        color: var(--c-muted);
+        font-style: italic;
+        margin-top: 6px;
+        padding-top: 6px;
+        border-top: 1px solid var(--c-surface);
+        line-height: 1.6;
+      }
 
-  .obj-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 1.5rem;
-  }
+      .obj-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 1.5rem;
+      }
 
-  .obj-card {
-    background: white;
-    border: 1px solid var(--c-border);
-    border-radius: 10px;
-    padding: 1rem;
-  }
+      .obj-card {
+        background: white;
+        border: 1px solid var(--c-border);
+        border-radius: 10px;
+        padding: 1rem;
+      }
 
-  .obj-pts {
-    font-family: "Cinzel Decorative", Georgia, serif;
-    font-size: 24px;
-    font-weight: 900;
-    color: var(--c-rust);
-  }
+      .obj-pts {
+        font-family: "Cinzel Decorative", Georgia, serif;
+        font-size: 24px;
+        font-weight: 900;
+        color: var(--c-rust);
+      }
 
-  .obj-name {
-    font-family: "Cinzel", serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: var(--c-dark);
-    margin: 3px 0;
-    text-transform: uppercase;
-  }
+      .obj-name {
+        font-family: "Cinzel", serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: var(--c-dark);
+        margin: 3px 0;
+        text-transform: uppercase;
+      }
 
-  .obj-cond {
-    font-family: "Cinzel", serif;
-    font-size: 11px;
-    color: var(--c-muted);
-    line-height: 1.5;
-    font-style: italic;
-  }
+      .obj-cond {
+        font-family: "Cinzel", serif;
+        font-size: 11px;
+        color: var(--c-muted);
+        line-height: 1.5;
+        font-style: italic;
+      }
 
-  .end-box {
-    background: var(--c-dark);
-    color: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-  }
+      .end-box {
+        background: var(--c-dark);
+        color: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
 
-  .end-box .etitle {
-    font-family: "Cinzel Decorative", serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--c-cream);
-    margin-bottom: 0.5rem;
-  }
+      .end-box .etitle {
+        font-family: "Cinzel Decorative", serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--c-cream);
+        margin-bottom: 0.5rem;
+      }
 
-  .end-box .ebody {
-    font-family: "Cinzel", serif;
-    font-size: 12.5px;
-    color: rgba(239, 222, 198, 0.8);
-    line-height: 1.8;
-    letter-spacing: 0.2px;
-  }
+      .end-box .ebody {
+        font-family: "Cinzel", serif;
+        font-size: 12.5px;
+        color: rgba(239, 222, 198, 0.8);
+        line-height: 1.8;
+        letter-spacing: 0.2px;
+      }
 
-  .divider {
-    height: 1px;
-    background: var(--c-border);
-    margin: 1.5rem 0;
-  }
+      .divider {
+        height: 1px;
+        background: var(--c-border);
+        margin: 1.5rem 0;
+      }
 
-  .label {
-    font-family: "Cinzel", serif;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--c-muted);
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
+      .label {
+        font-family: "Cinzel", serif;
+        font-size: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--c-muted);
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+      }
 
-  .quote-block {
-    background: var(--c-rust-pale);
-    border-left: 4px solid var(--c-rust);
-    border-radius: 0 10px 10px 0;
-    padding: 1rem 1.25rem;
-    margin-bottom: 1.5rem;
-    font-family: "Cinzel", serif;
-    font-size: 13px;
-    color: var(--c-rust);
-    font-style: italic;
-    line-height: 1.8;
-    letter-spacing: 0.2px;
-  }
+      .quote-block {
+        background: var(--c-rust-pale);
+        border-left: 4px solid var(--c-rust);
+        border-radius: 0 10px 10px 0;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1.5rem;
+        font-family: "Cinzel", serif;
+        font-size: 13px;
+        color: var(--c-rust);
+        font-style: italic;
+        line-height: 1.8;
+        letter-spacing: 0.2px;
+      }
 
-  .tag {
-    display: inline-block;
-    font-family: "Cinzel", serif;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 8px;
-    margin: 2px;
-    letter-spacing: 0.5px;
-  }
-</style>
+      .tag {
+        display: inline-block;
+        font-family: "Cinzel", serif;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 8px;
+        margin: 2px;
+        letter-spacing: 0.5px;
+      }
+    </style>
 
-<h2 class="sr-only"></h2>
+    <h2 class="sr-only"></h2>
 
-<div class="manual-hero">
-  <p class="hero-subtitle">Manual de Regras Oficial</p>
-  <h1 class="hero-title">Teia do Cerrado</h1>
-  <p class="hero-desc">"A savana mais biodiversa do planeta."</p>
-  <div class="badge-row">
-    <span class="badge">2 jogadores</span>
-    <span class="badge">130 cartas</span>
-    <span class="badge">Grade 4×4</span>
-    <span class="badge">Estratégia ecológica</span>
-  </div>
-</div>
-
-<nav class="nav-tabs" id="tabs">
-  <button class="nav-tab active" data-tab="objetivo">Objetivo</button>
-  <button class="nav-tab" data-tab="componentes">Cartas</button>
-  <button class="nav-tab" data-tab="tabuleiro">Tabuleiro</button>
-  <button class="nav-tab" data-tab="turno">Turno</button>
-  <button class="nav-tab" data-tab="intervencoes">Intervenções</button>
-  <button class="nav-tab" data-tab="objetivos">Objetivos</button>
-  <button class="nav-tab" data-tab="fim">Fim de Jogo</button>
-</nav>
-
-<div class="content">
-  <div class="section active" id="sec-objetivo">
-    <p class="section-title">Objetivo do Jogo</p>
-    <div class="quote-block">
-      Você está no meio de um conflito real: de um lado, a incrível diversidade
-      de plantas e animais buscando o equilíbrio da Rede Trófica, do outro, a
-      rápida expansão da fronteira agrícola. Sua missão é garantir que sua teia
-      de vida sobreviva!
-    </div>
-    <div class="card">
-      <div class="card-title" style="color: var(--c-dark)">
-        <i class="ti ti-target" aria-hidden="true" style="font-size: 20px"></i>
-        Como vencer
-      </div>
-      <div class="card-body">
-        Construa um ecossistema do Cerrado equilibrado em uma grade
-        <strong>4×4</strong>, formando redes tróficas reais e garantindo
-        resiliência a eventos ambientais. A vitória é decidida pela
-        <strong>maior pontuação total</strong>, somando pontos base das cartas,
-        objetivos de margem e pontos extras.
-      </div>
-    </div>
-    <div class="cards-grid" style="grid-template-columns: 1fr 1fr">
-      <div
-        class="card"
-        style="margin-bottom: 0; border-left: 4px solid var(--c-rust)"
-      >
-        <div class="card-title" style="color: var(--c-rust)">
-          <i class="ti ti-users" aria-hidden="true"></i> Jogadores
-        </div>
-        <div class="card-body">
-          Exatamente <strong>2 jogadores</strong>, devido à quantidade de cartas
-          de objetivos disponíveis no deck.
-        </div>
-      </div>
-      <div
-        class="card"
-        style="margin-bottom: 0; border-left: 4px solid var(--c-dark)"
-      >
-        <div class="card-title" style="color: var(--c-dark)">
-          <i class="ti ti-stack" aria-hidden="true"></i> Deck
-        </div>
-        <div class="card-body">
-          <strong>130 cartas</strong> no total, distribuídas para garantir
-          estabilidade da cadeia alimentar.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="sec-componentes">
-    <p class="section-title">Cartas do Deck</p>
-    <p class="section-intro">130 cartas no total.</p>
-
-    <div class="label">Organismos e elementos do bioma</div>
-    <div class="cards-grid">
-      <div class="mini-card">
-        <span class="icon"><img src="planta.png" alt="" /></span>
-        <div class="name">Plantas</div>
-        <div class="qty">30 cartas</div>
-        <span class="pts pts-green">+1 ponto</span>
-        <div class="restriction">
-          Jogadas em qualquer espaço. Base da cadeia.
-        </div>
-      </div>
-      <div class="mini-card">
-        <span class="icon"><img src="herbivoro.png" alt="" /></span>
-        <div class="name">Herbívoros</div>
-        <div class="qty">14 cartas</div>
-        <span class="pts pts-amber">+2 pontos</span>
-        <div class="restriction">Ao lado de uma Planta.</div>
-      </div>
-      <div class="mini-card">
-        <span class="icon"><img src="polen.png" alt="" /></span>
-        <div class="name">Polinizadores</div>
-        <div class="qty">10 cartas</div>
-        <span class="pts pts-amber">+2 pontos</span>
-        <div class="restriction">Ao lado de uma Planta Arbórea.</div>
-      </div>
-      <div class="mini-card">
-        <span class="icon"><img src="onivoro.png" alt="" /></span>
-        <div class="name">Onívoros</div>
-        <div class="qty">10 cartas</div>
-        <span class="pts pts-amber">+3 pontos</span>
-        <div class="restriction">Ao lado de Planta ou Herbívoro/Onívoro.</div>
-      </div>
-      <div class="mini-card">
-        <span class="icon"><img src="fungo.png" alt="" /></span>
-        <div class="name">Fungos</div>
-        <div class="qty">10 cartas</div>
-        <span class="pts pts-green">+1 ponto</span>
-        <div class="restriction">Jogados em qualquer espaço.</div>
-      </div>
-      <div class="mini-card">
-        <span class="icon"><img src="agua.png" alt="" /></span>
-        <div class="name">Corpos d'água</div>
-        <div class="qty">9 cartas</div>
-        <span class="pts pts-blue">+1 ponto</span>
-        <div class="restriction">Jogados em qualquer espaço.</div>
-      </div>
-      <div class="mini-card">
-        <span class="icon"><img src="carnivoro.png" alt="" /></span>
-        <div class="name">Carnívoros</div>
-        <div class="qty">8 cartas</div>
-        <span class="pts pts-fire">+4 pontos</span>
-        <div class="restriction">Ao lado de Herbívoro ou Onívoro.</div>
-      </div>
-      <div class="mini-card">
-        <span class="icon"><img src="fogo.png" alt="" /></span>
-        <div class="name">Fogo Cerrado</div>
-        <div class="qty">5 cartas</div>
-        <span class="pts pts-gray">especial</span>
-        <div class="restriction">Reposiciona 1 carta do seu Bioma.</div>
+    <div class="manual-hero">
+      <p class="hero-subtitle">Manual de Regras Oficial</p>
+      <h1 class="hero-title">Teia do Cerrado</h1>
+      <p class="hero-desc">"A savana mais biodiversa do planeta."</p>
+      <div class="badge-row">
+        <span class="badge">2 jogadores</span>
+        <span class="badge">130 cartas</span>
+        <span class="badge">Grade 4×4</span>
+        <span class="badge">Estratégia ecológica</span>
       </div>
     </div>
 
-    <div class="label">Cartas especiais</div>
-    <div class="cards-grid" style="grid-template-columns: 1fr 1fr 1fr">
-      <div class="mini-card">
-        <span class="icon"></span>
-        <div class="name">Intervenção</div>
-        <div class="qty">12 cartas</div>
-      </div>
-      <div class="mini-card">
-        <span class="icon"><img src="objetivo.png" alt="" /></span>
-        <div class="name">Objetivos</div>
-        <div class="qty">20 cartas</div>
-      </div>
-      <div class="mini-card">
-        <span class="icon"></span>
-        <div class="name">Guia Rápido</div>
-        <div class="qty">2 cartas</div>
-      </div>
-    </div>
-  </div>
+    <nav class="nav-tabs" id="tabs">
+      <button class="nav-tab active" data-tab="objetivo">Objetivo</button>
+      <button class="nav-tab" data-tab="componentes">Cartas</button>
+      <button class="nav-tab" data-tab="tabuleiro">Tabuleiro</button>
+      <button class="nav-tab" data-tab="turno">Turno</button>
+      <button class="nav-tab" data-tab="intervencoes">Intervenções</button>
+      <button class="nav-tab" data-tab="objetivos">Objetivos</button>
+      <button class="nav-tab" data-tab="fim">Fim de Jogo</button>
+    </nav>
 
-  <div class="section" id="sec-tabuleiro">
-    <p class="section-title">Posicionamento</p>
-    <p class="section-intro">
-      Cada jogador organiza seu ecossistema em uma grade 4×4. Os 9 nichos
-      internos são onde a vida acontece.
-    </p>
-
-    <div class="label">Diagrama da grade 4×4</div>
-    <div class="grid-visual">
-      <div class="grid-cell cell-empty" style="font-size: 9px">
-        canto<br />vazio
-      </div>
-      <div class="grid-cell cell-obj-col">Objeto<br />Coluna</div>
-      <div class="grid-cell cell-obj-col">Objeto<br />Coluna</div>
-      <div class="grid-cell cell-obj-col">Objeto<br />Coluna</div>
-      <div class="grid-cell cell-obj-row">Objeto<br />Linha</div>
-      <div class="grid-cell cell-niche">Nicho</div>
-      <div class="grid-cell cell-niche">Nicho</div>
-      <div class="grid-cell cell-niche">Nicho</div>
-      <div class="grid-cell cell-obj-row">Objeto<br />Linha</div>
-      <div class="grid-cell cell-niche">Nicho</div>
-      <div class="grid-cell cell-niche">Nicho</div>
-      <div class="grid-cell cell-niche">Nicho</div>
-      <div class="grid-cell cell-obj-row">Objeto<br />Linha</div>
-      <div class="grid-cell cell-niche">Nicho</div>
-      <div class="grid-cell cell-niche">Nicho</div>
-      <div class="grid-cell cell-niche">Nicho</div>
-    </div>
-
-    <div class="cards-grid" style="grid-template-columns: 1fr 1fr">
-      <div class="card" style="margin-bottom: 0">
-        <div class="card-title" style="color: var(--c-dark)">
-          <i class="ti ti-layout-grid" aria-hidden="true"></i> Grade Interna
-          (3×3)
+    <div class="content">
+      <div class="section active" id="sec-objetivo">
+        <p class="section-title">Objetivo do Jogo</p>
+        <div class="quote-block">
+          Você está no meio de um conflito real: de um lado, a incrível
+          diversidade de plantas e animais buscando o equilíbrio da Rede
+          Trófica, do outro, a rápida expansão da fronteira agrícola. Sua missão
+          é garantir que sua teia de vida sobreviva!
         </div>
-        <div class="card-body" style="font-size: 12px">
-          Os <strong>9 Nichos</strong> onde organismos, plantas e corpos d'água
-          são posicionados.
-        </div>
-      </div>
-      <div class="card" style="margin-bottom: 0">
-        <div class="card-title" style="color: var(--c-rust)">
-          <i class="ti ti-border-outer" aria-hidden="true"></i> Margens
-        </div>
-        <div class="card-body" style="font-size: 12px">
-          Linha do topo → Objetivos de Coluna. Coluna esquerda → Objetivos de
-          Linha.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="sec-turno">
-    <p class="section-title">Dinâmica do Turno</p>
-    <p class="section-intro">
-      No seu turno, escolha uma das três ações disponíveis.
-    </p>
-
-    <ul class="turn-steps">
-      <li class="turn-step">
-        <div class="step-num">A</div>
-        <div class="step-content">
-          <div class="step-title">
-            Comprar e Jogar Organismo / Intervenção / Especial
+        <div class="card">
+          <div class="card-title" style="color: var(--c-dark)">
+            <i
+              class="ti ti-target"
+              aria-hidden="true"
+              style="font-size: 20px"
+            ></i>
+            Como vencer
           </div>
-          <div class="step-body">
-            Pegue uma carta do baralho (ficando com 4 temporariamente). Em
-            seguida, jogue um organismo ou o Fogo do Cerrado na sua grade 3×3 —
-            ou jogue uma Intervenção na grade do oponente. A carta Recuperação
-            de Habitat é exceção: jogada na sua própria grade.
+          <div class="card-body">
+            Construa um ecossistema do Cerrado equilibrado em uma grade
+            <strong>4×4</strong>, formando redes tróficas reais e garantindo
+            resiliência a eventos ambientais. A vitória é decidida pela
+            <strong>maior pontuação total</strong>, somando pontos base das
+            cartas, objetivos de margem e pontos extras.
           </div>
         </div>
-      </li>
-      <li class="turn-step">
-        <div class="step-num">B</div>
-        <div class="step-content">
-          <div class="step-title">Comprar e Jogar Objetivo</div>
-          <div class="step-body">
-            Pegue um objetivo do baralho de objetivos e coloque-o imediatamente
-            em um espaço vago na linha do topo ou na coluna da esquerda.
+        <div class="cards-grid" style="grid-template-columns: 1fr 1fr">
+          <div
+            class="card"
+            style="margin-bottom: 0; border-left: 4px solid var(--c-rust)"
+          >
+            <div class="card-title" style="color: var(--c-rust)">
+              <i class="ti ti-users" aria-hidden="true"></i> Jogadores
+            </div>
+            <div class="card-body">
+              Exatamente <strong>2 jogadores</strong>, devido à quantidade de
+              cartas de objetivos disponíveis no deck.
+            </div>
+          </div>
+          <div
+            class="card"
+            style="margin-bottom: 0; border-left: 4px solid var(--c-dark)"
+          >
+            <div class="card-title" style="color: var(--c-dark)">
+              <i class="ti ti-stack" aria-hidden="true"></i> Deck
+            </div>
+            <div class="card-body">
+              <strong>130 cartas</strong> no total, distribuídas para garantir
+              estabilidade da cadeia alimentar.
+            </div>
           </div>
         </div>
-      </li>
-      <li class="turn-step">
-        <div class="step-num">C</div>
-        <div class="step-content">
-          <div class="step-title">Descartar</div>
-          <div class="step-body">
-            Pegue uma carta do baralho principal (ficando com 4). Se não quiser
-            jogar nenhuma das cartas em mão, descarte uma diretamente para o
+      </div>
+
+      <div class="section" id="sec-componentes">
+        <p class="section-title">Cartas do Deck</p>
+        <p class="section-intro">130 cartas no total.</p>
+
+        <div class="label">Organismos e elementos do bioma</div>
+        <div class="cards-grid">
+          <div class="mini-card">
+            <span class="icon"><img src="planta.png" alt="" /></span>
+            <div class="name">Plantas</div>
+            <div class="qty">30 cartas</div>
+            <span class="pts pts-green">+1 ponto</span>
+            <div class="restriction">
+              Jogadas em qualquer espaço. Base da cadeia.
+            </div>
+          </div>
+          <div class="mini-card">
+            <span class="icon"><img src="herbivoro.png" alt="" /></span>
+            <div class="name">Herbívoros</div>
+            <div class="qty">14 cartas</div>
+            <span class="pts pts-amber">+2 pontos</span>
+            <div class="restriction">Ao lado de uma Planta.</div>
+          </div>
+          <div class="mini-card">
+            <span class="icon"><img src="polen.png" alt="" /></span>
+            <div class="name">Polinizadores</div>
+            <div class="qty">10 cartas</div>
+            <span class="pts pts-amber">+2 pontos</span>
+            <div class="restriction">Ao lado de uma Planta Arbórea.</div>
+          </div>
+          <div class="mini-card">
+            <span class="icon"><img src="onivoro.png" alt="" /></span>
+            <div class="name">Onívoros</div>
+            <div class="qty">10 cartas</div>
+            <span class="pts pts-amber">+3 pontos</span>
+            <div class="restriction">
+              Ao lado de Planta ou Herbívoro/Onívoro.
+            </div>
+          </div>
+          <div class="mini-card">
+            <span class="icon"><img src="fungo.png" alt="" /></span>
+            <div class="name">Fungos</div>
+            <div class="qty">10 cartas</div>
+            <span class="pts pts-green">+1 ponto</span>
+            <div class="restriction">Jogados em qualquer espaço.</div>
+          </div>
+          <div class="mini-card">
+            <span class="icon"><img src="agua.png" alt="" /></span>
+            <div class="name">Corpos d'água</div>
+            <div class="qty">9 cartas</div>
+            <span class="pts pts-blue">+1 ponto</span>
+            <div class="restriction">Jogados em qualquer espaço.</div>
+          </div>
+          <div class="mini-card">
+            <span class="icon"><img src="carnivoro.png" alt="" /></span>
+            <div class="name">Carnívoros</div>
+            <div class="qty">8 cartas</div>
+            <span class="pts pts-fire">+4 pontos</span>
+            <div class="restriction">Ao lado de Herbívoro ou Onívoro.</div>
+          </div>
+          <div class="mini-card">
+            <span class="icon"><img src="fogo.png" alt="" /></span>
+            <div class="name">Fogo Cerrado</div>
+            <div class="qty">5 cartas</div>
+            <span class="pts pts-gray">especial</span>
+            <div class="restriction">Reposiciona 1 carta do seu Bioma.</div>
+          </div>
+        </div>
+
+        <div class="label">Cartas especiais</div>
+        <div class="cards-grid" style="grid-template-columns: 1fr 1fr 1fr">
+          <div class="mini-card">
+            <span class="icon"></span>
+            <div class="name">Intervenção</div>
+            <div class="qty">12 cartas</div>
+          </div>
+          <div class="mini-card">
+            <span class="icon"><img src="objetivo.png" alt="" /></span>
+            <div class="name">Objetivos</div>
+            <div class="qty">20 cartas</div>
+          </div>
+          <div class="mini-card">
+            <span class="icon"></span>
+            <div class="name">Guia Rápido</div>
+            <div class="qty">2 cartas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="sec-tabuleiro">
+        <p class="section-title">Posicionamento</p>
+        <p class="section-intro">
+          Cada jogador organiza seu ecossistema em uma grade 4×4. Os 9 nichos
+          internos são onde a vida acontece.
+        </p>
+
+        <div class="label">Diagrama da grade 4×4</div>
+        <div class="grid-visual">
+          <div class="grid-cell cell-empty" style="font-size: 9px">
+            canto<br />vazio
+          </div>
+          <div class="grid-cell cell-obj-col">Objeto<br />Coluna</div>
+          <div class="grid-cell cell-obj-col">Objeto<br />Coluna</div>
+          <div class="grid-cell cell-obj-col">Objeto<br />Coluna</div>
+          <div class="grid-cell cell-obj-row">Objeto<br />Linha</div>
+          <div class="grid-cell cell-niche">Nicho</div>
+          <div class="grid-cell cell-niche">Nicho</div>
+          <div class="grid-cell cell-niche">Nicho</div>
+          <div class="grid-cell cell-obj-row">Objeto<br />Linha</div>
+          <div class="grid-cell cell-niche">Nicho</div>
+          <div class="grid-cell cell-niche">Nicho</div>
+          <div class="grid-cell cell-niche">Nicho</div>
+          <div class="grid-cell cell-obj-row">Objeto<br />Linha</div>
+          <div class="grid-cell cell-niche">Nicho</div>
+          <div class="grid-cell cell-niche">Nicho</div>
+          <div class="grid-cell cell-niche">Nicho</div>
+        </div>
+
+        <div class="cards-grid" style="grid-template-columns: 1fr 1fr">
+          <div class="card" style="margin-bottom: 0">
+            <div class="card-title" style="color: var(--c-dark)">
+              <i class="ti ti-layout-grid" aria-hidden="true"></i> Grade Interna
+              (3×3)
+            </div>
+            <div class="card-body" style="font-size: 12px">
+              Os <strong>9 Nichos</strong> onde organismos, plantas e corpos
+              d'água são posicionados.
+            </div>
+          </div>
+          <div class="card" style="margin-bottom: 0">
+            <div class="card-title" style="color: var(--c-rust)">
+              <i class="ti ti-border-outer" aria-hidden="true"></i> Margens
+            </div>
+            <div class="card-body" style="font-size: 12px">
+              Linha do topo → Objetivos de Coluna. Coluna esquerda → Objetivos
+              de Linha.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="sec-turno">
+        <p class="section-title">Dinâmica do Turno</p>
+        <p class="section-intro">
+          No seu turno, escolha uma das três ações disponíveis.
+        </p>
+
+        <ul class="turn-steps">
+          <li class="turn-step">
+            <div class="step-num">A</div>
+            <div class="step-content">
+              <div class="step-title">
+                Comprar e Jogar Organismo / Intervenção / Especial
+              </div>
+              <div class="step-body">
+                Pegue uma carta do baralho (ficando com 4 temporariamente). Em
+                seguida, jogue um organismo ou o Fogo do Cerrado na sua grade
+                3×3 — ou jogue uma Intervenção na grade do oponente. A carta
+                Recuperação de Habitat é exceção: jogada na sua própria grade.
+              </div>
+            </div>
+          </li>
+          <li class="turn-step">
+            <div class="step-num">B</div>
+            <div class="step-content">
+              <div class="step-title">Comprar e Jogar Objetivo</div>
+              <div class="step-body">
+                Pegue um objetivo do baralho de objetivos e coloque-o
+                imediatamente em um espaço vago na linha do topo ou na coluna da
+                esquerda.
+              </div>
+            </div>
+          </li>
+          <li class="turn-step">
+            <div class="step-num">C</div>
+            <div class="step-content">
+              <div class="step-title">Descartar</div>
+              <div class="step-body">
+                Pegue uma carta do baralho principal (ficando com 4). Se não
+                quiser jogar nenhuma das cartas em mão, descarte uma diretamente
+                para o cemitério.
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="card" style="border-left: 4px solid var(--c-rust)">
+          <div class="card-title" style="color: var(--c-rust)">
+            <i class="ti ti-hand" aria-hidden="true"></i> Regra de Mão
+          </div>
+          <div class="card-body">
+            Após realizar a ação, o jogador deve terminar o turno com
+            <strong>exatamente 3 cartas na mão</strong>, compostas
+            exclusivamente de organismos, cartas de intervenção ou de corpo de
+            água.
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div class="label">O Cemitério</div>
+        <div class="card">
+          <div class="card-body">
+            Pilha de descarte comum a todos, posicionada em qualquer lugar da
+            mesa com cartas viradas para cima. Cartas vão ao cemitério por:
+            descarte voluntário (Ação C) ou impactos ambientais (Queimada
+            Ilegal, Agrotóxico).
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="sec-intervencoes">
+        <p class="section-title">Cartas de Intervenção</p>
+        <p class="section-intro">
+          Simulam ameaças reais ao bioma do adversário. São jogadas na grade do
+          oponente, com exceção da Recuperação de Habitat.
+        </p>
+
+        <div class="intervention-card">
+          <div class="interv-title">Queimada Ilegal</div>
+          <div class="interv-body">
+            Remova uma <strong>Planta arbórea</strong> do adversário para o
             cemitério.
           </div>
+          <div class="interv-note">
+            Representa a queima criminosa usada para expandir a fronteira
+            agrícola — diferente do Fogo do Cerrado natural, que reposiciona
+            cartas estimulando a rebrota.
+          </div>
         </div>
-      </li>
-    </ul>
-
-    <div class="card" style="border-left: 4px solid var(--c-rust)">
-      <div class="card-title" style="color: var(--c-rust)">
-        <i class="ti ti-hand" aria-hidden="true"></i> Regra de Mão
-      </div>
-      <div class="card-body">
-        Após realizar a ação, o jogador deve terminar o turno com
-        <strong>exatamente 3 cartas na mão</strong>, compostas exclusivamente de
-        organismos, cartas de intervenção ou de corpo de água.
-      </div>
-    </div>
-
-    <div class="divider"></div>
-    <div class="label">O Cemitério</div>
-    <div class="card">
-      <div class="card-body">
-        Pilha de descarte comum a todos, posicionada em qualquer lugar da mesa
-        com cartas viradas para cima. Cartas vão ao cemitério por: descarte
-        voluntário (Ação C) ou impactos ambientais (Queimada Ilegal,
-        Agrotóxico).
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="sec-intervencoes">
-    <p class="section-title">Cartas de Intervenção</p>
-    <p class="section-intro">
-      Simulam ameaças reais ao bioma do adversário. São jogadas na grade do
-      oponente, com exceção da Recuperação de Habitat.
-    </p>
-
-    <div class="intervention-card">
-      <div class="interv-title">Queimada Ilegal</div>
-      <div class="interv-body">
-        Remova uma <strong>Planta arbórea</strong> do adversário para o
-        cemitério.
-      </div>
-      <div class="interv-note">
-        Representa a queima criminosa usada para expandir a fronteira agrícola —
-        diferente do Fogo do Cerrado natural, que reposiciona cartas estimulando
-        a rebrota.
-      </div>
-    </div>
-    <div class="intervention-card">
-      <div class="interv-title">Agrotóxico</div>
-      <div class="interv-body">
-        Jogue sobre um <strong>polinizador</strong> do adversário. O polinizador
-        vai para o cemitério.
-      </div>
-      <div class="interv-note">
-        Narrativa de pressão do agronegócio não sustentável ao redor da reserva.
-      </div>
-    </div>
-    <div class="intervention-card">
-      <div class="interv-title">Espécie Exótica Invasora</div>
-      <div class="interv-body">
-        Substitua um <strong>Herbívoro ou Planta</strong> do adversário por esta
-        carta, que passará a valer <strong>0 pontos</strong>.
-      </div>
-    </div>
-    <div class="intervention-card">
-      <div class="interv-title">Parasitismo</div>
-      <div class="interv-body">
-        Anexe a um <strong>animal ou planta</strong> do adversário. O dono da
-        carta perde os pontos dela, e você ganha
-        <strong>+2 pontos extras</strong> na pontuação final.
-      </div>
-    </div>
-    <div class="intervention-card">
-      <div class="interv-title">Fragmentação de Habitat</div>
-      <div class="interv-body">
-        Escolha uma <strong>linha ou coluna</strong> do adversário. Ele ficará
-        impedido de utilizar o espaço onde foi colocada a carta até o final do
-        jogo.
-      </div>
-      <div class="interv-note">
-        Ilustra o drama real dos animais confinados em fragmentos de mata que
-        perdem conectividade ecológica.
-      </div>
-    </div>
-    <div class="intervention-card recovery">
-      <div class="interv-title" style="color: var(--c-dark)">
-        Recuperação de Habitat
-      </div>
-      <div class="interv-body">
-        Jogada na <strong>sua própria grade</strong>. Recupera o habitat que foi
-        fragmentado pelo adversário.
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="sec-objetivos">
-    <p class="section-title">Objetivos e Pontuação</p>
-    <p class="section-intro">
-      Os objetivos referem-se exclusivamente à linha ou coluna onde estão
-      posicionados nas margens. O símbolo "+" indica que as cartas exigidas
-      devem estar em sequência.
-    </p>
-
-    <div class="obj-grid">
-      <div class="obj-card">
-        <div class="obj-pts">+6</div>
-        <div class="obj-name">Rede Trófica</div>
-        <div class="obj-cond">Sequência: Planta + Consumidor + Carnívoro</div>
-      </div>
-      <div class="obj-card">
-        <div class="obj-pts">+4</div>
-        <div class="obj-name">Dispersão de Sementes</div>
-        <div class="obj-cond">Sequência: Planta + Herbívoro + Onívoro</div>
-      </div>
-      <div class="obj-card">
-        <div class="obj-pts">+4</div>
-        <div class="obj-name">Corpo d'água Protegido</div>
-        <div class="obj-cond">Sequência: Corpo d'água + Planta</div>
-      </div>
-      <div class="obj-card">
-        <div class="obj-pts">+3</div>
-        <div class="obj-name">Controle Biológico</div>
-        <div class="obj-cond">
-          Linha/coluna composta por Carnívoro entre 2 presas
+        <div class="intervention-card">
+          <div class="interv-title">Agrotóxico</div>
+          <div class="interv-body">
+            Jogue sobre um <strong>polinizador</strong> do adversário. O
+            polinizador vai para o cemitério.
+          </div>
+          <div class="interv-note">
+            Narrativa de pressão do agronegócio não sustentável ao redor da
+            reserva.
+          </div>
+        </div>
+        <div class="intervention-card">
+          <div class="interv-title">Espécie Exótica Invasora</div>
+          <div class="interv-body">
+            Substitua um <strong>Herbívoro ou Planta</strong> do adversário por
+            esta carta, que passará a valer <strong>0 pontos</strong>.
+          </div>
+        </div>
+        <div class="intervention-card">
+          <div class="interv-title">Parasitismo</div>
+          <div class="interv-body">
+            Anexe a um <strong>animal ou planta</strong> do adversário. O dono
+            da carta perde os pontos dela, e você ganha
+            <strong>+2 pontos extras</strong> na pontuação final.
+          </div>
+        </div>
+        <div class="intervention-card">
+          <div class="interv-title">Fragmentação de Habitat</div>
+          <div class="interv-body">
+            Escolha uma <strong>linha ou coluna</strong> do adversário. Ele
+            ficará impedido de utilizar o espaço onde foi colocada a carta até o
+            final do jogo.
+          </div>
+          <div class="interv-note">
+            Ilustra o drama real dos animais confinados em fragmentos de mata
+            que perdem conectividade ecológica.
+          </div>
+        </div>
+        <div class="intervention-card recovery">
+          <div class="interv-title" style="color: var(--c-dark)">
+            Recuperação de Habitat
+          </div>
+          <div class="interv-body">
+            Jogada na <strong>sua própria grade</strong>. Recupera o habitat que
+            foi fragmentado pelo adversário.
+          </div>
         </div>
       </div>
-      <div class="obj-card">
-        <div class="obj-pts">+3</div>
-        <div class="obj-name">Floresta</div>
-        <div class="obj-cond">Linha/coluna composta apenas por Plantas</div>
+
+      <div class="section" id="sec-objetivos">
+        <p class="section-title">Objetivos e Pontuação</p>
+        <p class="section-intro">
+          Os objetivos referem-se exclusivamente à linha ou coluna onde estão
+          posicionados nas margens. O símbolo "+" indica que as cartas exigidas
+          devem estar em sequência.
+        </p>
+
+        <div class="obj-grid">
+          <div class="obj-card">
+            <div class="obj-pts">+6</div>
+            <div class="obj-name">Rede Trófica</div>
+            <div class="obj-cond">
+              Sequência: Planta + Consumidor + Carnívoro
+            </div>
+          </div>
+          <div class="obj-card">
+            <div class="obj-pts">+4</div>
+            <div class="obj-name">Dispersão de Sementes</div>
+            <div class="obj-cond">Sequência: Planta + Herbívoro + Onívoro</div>
+          </div>
+          <div class="obj-card">
+            <div class="obj-pts">+4</div>
+            <div class="obj-name">Corpo d'água Protegido</div>
+            <div class="obj-cond">Sequência: Corpo d'água + Planta</div>
+          </div>
+          <div class="obj-card">
+            <div class="obj-pts">+3</div>
+            <div class="obj-name">Controle Biológico</div>
+            <div class="obj-cond">
+              Linha/coluna composta por Carnívoro entre 2 presas
+            </div>
+          </div>
+          <div class="obj-card">
+            <div class="obj-pts">+3</div>
+            <div class="obj-name">Floresta</div>
+            <div class="obj-cond">Linha/coluna composta apenas por Plantas</div>
+          </div>
+          <div class="obj-card">
+            <div class="obj-pts">+2</div>
+            <div class="obj-name">Ciclo Hídrico</div>
+            <div class="obj-cond">Sequência: Corpo d'água + Animal</div>
+          </div>
+          <div class="obj-card">
+            <div class="obj-pts">+2</div>
+            <div class="obj-name">Decomposição</div>
+            <div class="obj-cond">Linha/coluna com Decompositor</div>
+          </div>
+          <div class="obj-card">
+            <div class="obj-pts">+2</div>
+            <div class="obj-name">Polinização Cerrado</div>
+            <div class="obj-cond">Sequência: Planta + Polinizador</div>
+          </div>
+        </div>
+
+        <div class="label">Pontuação base das cartas</div>
+        <div class="card">
+          <div
+            class="card-body"
+            style="display: flex; gap: 6px; flex-wrap: wrap"
+          >
+            <span class="tag pts-green"
+              ><img
+                src="planta.png"
+                style="
+                  width: 24px;
+                  height: 24px;
+                  object-fit: contain;
+                  mix-blend-mode: multiply;
+                "
+                alt=""
+              />
+              Planta: +1</span
+            >
+            <span class="tag pts-amber"
+              ><img
+                src="herbivoro.png"
+                style="
+                  width: 24px;
+                  height: 24px;
+                  object-fit: contain;
+                  mix-blend-mode: multiply;
+                "
+                alt=""
+              />
+              Herbívoro: +2</span
+            >
+            <span class="tag pts-amber"
+              ><img
+                src="polen.png"
+                style="
+                  width: 24px;
+                  height: 24px;
+                  object-fit: contain;
+                  mix-blend-mode: multiply;
+                "
+                alt=""
+              />
+              Polinizador: +2</span
+            >
+            <span class="tag pts-amber"
+              ><img
+                src="onivoro.png"
+                style="
+                  width: 24px;
+                  height: 24px;
+                  object-fit: contain;
+                  mix-blend-mode: multiply;
+                "
+                alt=""
+              />
+              Onívoro: +3</span
+            >
+            <span class="tag pts-fire"
+              ><img
+                src="carnivoro.png"
+                style="
+                  width: 24px;
+                  height: 24px;
+                  object-fit: contain;
+                  mix-blend-mode: multiply;
+                "
+                alt=""
+              />
+              Carnívoro: +4</span
+            >
+            <span class="tag pts-green"
+              ><img
+                src="fungo.png"
+                style="
+                  width: 24px;
+                  height: 24px;
+                  object-fit: contain;
+                  mix-blend-mode: multiply;
+                "
+                alt=""
+              />
+              Fungo: +1</span
+            >
+            <span class="tag pts-blue"
+              ><img
+                src="agua.png"
+                style="
+                  width: 24px;
+                  height: 24px;
+                  object-fit: contain;
+                  mix-blend-mode: multiply;
+                "
+                alt=""
+              />
+              Corpo d'água: +1</span
+            >
+          </div>
+        </div>
       </div>
-      <div class="obj-card">
-        <div class="obj-pts">+2</div>
-        <div class="obj-name">Ciclo Hídrico</div>
-        <div class="obj-cond">Sequência: Corpo d'água + Animal</div>
-      </div>
-      <div class="obj-card">
-        <div class="obj-pts">+2</div>
-        <div class="obj-name">Decomposição</div>
-        <div class="obj-cond">Linha/coluna com Decompositor</div>
-      </div>
-      <div class="obj-card">
-        <div class="obj-pts">+2</div>
-        <div class="obj-name">Polinização Cerrado</div>
-        <div class="obj-cond">Sequência: Planta + Polinizador</div>
+
+      <div class="section" id="sec-fim">
+        <p class="section-title">Fim de Jogo</p>
+
+        <div class="end-box">
+          <div class="etitle">Condições de término</div>
+          <div class="ebody">
+            O jogo termina imediatamente quando um jogador
+            <strong>preenche os 9 nichos</strong> de sua grade interna — ou
+            quando <strong>um dos decks de compra acabar</strong>.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title" style="color: var(--c-rust)">
+            <i class="ti ti-trophy" aria-hidden="true"></i> Como calcular a
+            pontuação
+          </div>
+          <div class="card-body" style="line-height: 1.8">
+            A pontuação total = <strong>pontos base das cartas</strong> +
+            <strong>objetivos de margem conquistados</strong> +
+            <strong>pontos extras</strong> (Parasitismo, etc.).<br /><br />
+            Vence o jogador com a maior pontuação total.
+          </div>
+        </div>
+
+        <div class="card" style="border-left: 4px solid var(--c-dark)">
+          <div class="card-title" style="color: var(--c-dark)">
+            <i class="ti ti-scale" aria-hidden="true"></i> Critério de desempate
+          </div>
+          <div class="card-body">
+            Em caso de empate na pontuação, vence o jogador com o maior número
+            de organismos visíveis em sua teia.
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="label">Pontuação base das cartas</div>
-    <div class="card">
-      <div class="card-body" style="display: flex; gap: 6px; flex-wrap: wrap">
-        <span class="tag pts-green"
-          ><img
-            src="planta.png"
-            style="
-              width: 24px;
-              height: 24px;
-              object-fit: contain;
-              mix-blend-mode: multiply;
-            "
-            alt=""
-          />
-          Planta: +1</span
-        >
-        <span class="tag pts-amber"
-          ><img
-            src="herbivoro.png"
-            style="
-              width: 24px;
-              height: 24px;
-              object-fit: contain;
-              mix-blend-mode: multiply;
-            "
-            alt=""
-          />
-          Herbívoro: +2</span
-        >
-        <span class="tag pts-amber"
-          ><img
-            src="polen.png"
-            style="
-              width: 24px;
-              height: 24px;
-              object-fit: contain;
-              mix-blend-mode: multiply;
-            "
-            alt=""
-          />
-          Polinizador: +2</span
-        >
-        <span class="tag pts-amber"
-          ><img
-            src="onivoro.png"
-            style="
-              width: 24px;
-              height: 24px;
-              object-fit: contain;
-              mix-blend-mode: multiply;
-            "
-            alt=""
-          />
-          Onívoro: +3</span
-        >
-        <span class="tag pts-fire"
-          ><img
-            src="carnivoro.png"
-            style="
-              width: 24px;
-              height: 24px;
-              object-fit: contain;
-              mix-blend-mode: multiply;
-            "
-            alt=""
-          />
-          Carnívoro: +4</span
-        >
-        <span class="tag pts-green"
-          ><img
-            src="fungo.png"
-            style="
-              width: 24px;
-              height: 24px;
-              object-fit: contain;
-              mix-blend-mode: multiply;
-            "
-            alt=""
-          />
-          Fungo: +1</span
-        >
-        <span class="tag pts-blue"
-          ><img
-            src="agua.png"
-            style="
-              width: 24px;
-              height: 24px;
-              object-fit: contain;
-              mix-blend-mode: multiply;
-            "
-            alt=""
-          />
-          Corpo d'água: +1</span
-        >
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="sec-fim">
-    <p class="section-title">Fim de Jogo</p>
-
-    <div class="end-box">
-      <div class="etitle">Condições de término</div>
-      <div class="ebody">
-        O jogo termina imediatamente quando um jogador
-        <strong>preenche os 9 nichos</strong> de sua grade interna — ou quando
-        <strong>um dos decks de compra acabar</strong>.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title" style="color: var(--c-rust)">
-        <i class="ti ti-trophy" aria-hidden="true"></i> Como calcular a
-        pontuação
-      </div>
-      <div class="card-body" style="line-height: 1.8">
-        A pontuação total = <strong>pontos base das cartas</strong> +
-        <strong>objetivos de margem conquistados</strong> +
-        <strong>pontos extras</strong> (Parasitismo, etc.).<br /><br />
-        Vence o jogador com a maior pontuação total.
-      </div>
-    </div>
-
-    <div class="card" style="border-left: 4px solid var(--c-dark)">
-      <div class="card-title" style="color: var(--c-dark)">
-        <i class="ti ti-scale" aria-hidden="true"></i> Critério de desempate
-      </div>
-      <div class="card-body">
-        Em caso de empate na pontuação, vence o jogador com o maior número de
-        organismos visíveis em sua teia.
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  document.querySelectorAll(".nav-tab").forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const target = tab.dataset.tab;
-      document
-        .querySelectorAll(".nav-tab")
-        .forEach((t) => t.classList.remove("active"));
-      document
-        .querySelectorAll(".section")
-        .forEach((s) => s.classList.remove("active"));
-      tab.classList.add("active");
-      document.getElementById("sec-" + target).classList.add("active");
-    });
-  });
-</script>
+    <script>
+      document.querySelectorAll(".nav-tab").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const target = tab.dataset.tab;
+          document
+            .querySelectorAll(".nav-tab")
+            .forEach((t) => t.classList.remove("active"));
+          document
+            .querySelectorAll(".section")
+            .forEach((s) => s.classList.remove("active"));
+          tab.classList.add("active");
+          document.getElementById("sec-" + target).classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
