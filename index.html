@@ -161,6 +161,15 @@
         margin: 0 auto;
       }
 
+      @media (max-width: 480px) {
+        .content {
+          padding: 1rem;
+        }
+        .cards-grid {
+          grid-template-columns: 1fr !important;
+        }
+      }
+
       .section {
         display: none;
       }
@@ -304,13 +313,14 @@
 
       .grid-visual {
         display: grid;
-        grid-template-columns: 60px 1fr 1fr 1fr;
-        grid-template-rows: 60px 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
         gap: 4px;
-        max-width: 340px;
+        width: 100%;
+        max-width: 300px;
         margin: 1.5rem auto;
         font-family: "Cinzel", serif;
-        font-size: 10px;
+        font-size: clamp(8px, 2.5vw, 11px);
       }
 
       .grid-cell {
@@ -319,10 +329,10 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 4px;
+        padding: clamp(4px, 1.5vw, 8px);
         line-height: 1.4;
         font-weight: 600;
-        min-height: 56px;
+        aspect-ratio: 1;
         letter-spacing: 0.3px;
       }
 
@@ -742,7 +752,7 @@
       <div class="section" id="sec-tabuleiro">
         <p class="section-title">Posicionamento</p>
         <p class="section-intro">
-          Cada jogador organiza seu ecossistema em uma grade 4×4. Os 9 nichos
+          Cada jogador organiza seu ecossistema em uma grade 4×4. Os 9 biomas
           internos são onde a vida acontece.
         </p>
 
@@ -751,21 +761,21 @@
           <div class="grid-cell cell-empty" style="font-size: 9px">
             canto<br />vazio
           </div>
-          <div class="grid-cell cell-obj-col">Objeto<br />Coluna</div>
-          <div class="grid-cell cell-obj-col">Objeto<br />Coluna</div>
-          <div class="grid-cell cell-obj-col">Objeto<br />Coluna</div>
-          <div class="grid-cell cell-obj-row">Objeto<br />Linha</div>
-          <div class="grid-cell cell-niche">Nicho</div>
-          <div class="grid-cell cell-niche">Nicho</div>
-          <div class="grid-cell cell-niche">Nicho</div>
-          <div class="grid-cell cell-obj-row">Objeto<br />Linha</div>
-          <div class="grid-cell cell-niche">Nicho</div>
-          <div class="grid-cell cell-niche">Nicho</div>
-          <div class="grid-cell cell-niche">Nicho</div>
-          <div class="grid-cell cell-obj-row">Objeto<br />Linha</div>
-          <div class="grid-cell cell-niche">Nicho</div>
-          <div class="grid-cell cell-niche">Nicho</div>
-          <div class="grid-cell cell-niche">Nicho</div>
+          <div class="grid-cell cell-obj-col">Objetivo<br />Coluna</div>
+          <div class="grid-cell cell-obj-col">Objetivo<br />Coluna</div>
+          <div class="grid-cell cell-obj-col">Objetivo<br />Coluna</div>
+          <div class="grid-cell cell-obj-row">Objetivo<br />Linha</div>
+          <div class="grid-cell cell-niche">Bioma</div>
+          <div class="grid-cell cell-niche">Bioma</div>
+          <div class="grid-cell cell-niche">Bioma</div>
+          <div class="grid-cell cell-obj-row">Objetivo<br />Linha</div>
+          <div class="grid-cell cell-niche">Bioma</div>
+          <div class="grid-cell cell-niche">Bioma</div>
+          <div class="grid-cell cell-niche">Bioma</div>
+          <div class="grid-cell cell-obj-row">Objetivo<br />Linha</div>
+          <div class="grid-cell cell-niche">Bioma</div>
+          <div class="grid-cell cell-niche">Bioma</div>
+          <div class="grid-cell cell-niche">Bioma</div>
         </div>
 
         <div class="cards-grid" style="grid-template-columns: 1fr 1fr">
@@ -775,7 +785,7 @@
               (3×3)
             </div>
             <div class="card-body" style="font-size: 12px">
-              Os <strong>9 Nichos</strong> onde organismos, plantas e corpos
+              Os <strong>9 Biomas</strong> onde organismos, plantas e corpos
               d'água são posicionados.
             </div>
           </div>
@@ -789,6 +799,58 @@
             </div>
           </div>
         </div>
+
+        <div class="label" style="margin-top: 2rem">Preparação</div>
+        <ol class="turn-steps" style="margin-top: 1rem">
+          <li class="turn-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-body">Coloque uma carta de <strong>Guia Rápido</strong> virada para cima diante de cada jogador. Ela servirá de mapa para a montagem do bioma.</div>
+            </div>
+          </li>
+          <li class="turn-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-body">Separe as cartas em dois baralhos: <strong>Cartas de Bioma</strong> (organismos, água, fogo e intervenções) e <strong>Cartas de Objetivo</strong>. Embaralhe-os separadamente e coloque-os virados para baixo no centro da mesa.</div>
+            </div>
+          </li>
+          <li class="turn-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-body">Distribua <strong>três Cartas de Bioma</strong> para cada jogador. Mantêm-nas em mãos sem mostrar ao adversário.</div>
+            </div>
+          </li>
+          <li class="turn-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-body">Distribua <strong>três Cartas de Objetivo</strong> para cada jogador. Os jogadores devem posicioná-las imediatamente nos espaços da linha do topo, definindo seus três <strong>Objetivos de Coluna</strong> desde o início da partida.</div>
+            </div>
+          </li>
+          <li class="turn-step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <div class="step-body">Revele <strong>três Cartas de Bioma</strong> e <strong>três Cartas de Objetivo</strong> do topo de cada baralho e coloque-as viradas para cima no centro da mesa — formando a área de compra aberta.</div>
+            </div>
+          </li>
+          <li class="turn-step">
+            <div class="step-num">6</div>
+            <div class="step-content">
+              <div class="step-body">Reserve um espaço para o <strong>Cemitério</strong> (pilha de descarte). Espaço único e comum a ambos os jogadores; cartas descartadas ficam viradas para cima.</div>
+            </div>
+          </li>
+          <li class="turn-step">
+            <div class="step-num">7</div>
+            <div class="step-content">
+              <div class="step-body">Cada jogador organiza sua grade 4×4: linha do topo preenchida pelos objetivos iniciais, coluna da esquerda (3 espaços) vazia aguardando os <strong>Objetivos de Linha</strong>, e a grade interna (3×3) com os biomas a construir.</div>
+            </div>
+          </li>
+          <li class="turn-step">
+            <div class="step-num">8</div>
+            <div class="step-content">
+              <div class="step-body">Dê a vez de primeiro jogador a quem <strong>visitou uma área de natureza por último</strong>!</div>
+            </div>
+          </li>
+        </ol>
       </div>
 
       <div class="section" id="sec-turno">
